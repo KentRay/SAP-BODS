@@ -1,0 +1,389 @@
+CMC : Central Management Console
+-Admin Tool 
+-Web interface 
+
+we can get the CMC :2 ways 
+
+1) Installation of SAP BOBI Platform or  
+2) Installation of SAP IPS
+
+SAP BOBI Platform :
+
+CMC
+Webintelligence 
+UDT
+IDT
+Explorer
+OLAP Analysis 
+MS office Analysis 
+Rich client 
+Crystal reports for Enterprise 
+
+Lumira 
+Design Studio
+Dashboards 
+
+IPS ( Information Platform Services)
+
+-CMC
+
+
+SAP BOBI Platform + Dataservices or 
+IPS + DataServices 
+
+**************Components*****************
+
+-BODS Designer (95%)***
+	ETL Tool 
+	-Projects 
+	-Workflow 
+	-Dataflow 
+	-Jobs 
+
+-Server Manager 
+	-Job server(AL_engine.exe) 
+	-acccess server 
+
+-Repository Manager
+	-Local Repository( Local to developer )
+	-Central Repository(Share the task,Version management)
+	-Profiler Repository  (meta data statistics )
+-Work Bench 
+	-Mass replication of Tables (SAP Appl Tables)
+-License Manager
+	-Add the License  
+-Dataservices Management Console **
+	-Schedule the jobs 
+	-Monitor the jobs
+	-SAP BW and SAPBODS 
+	-SAP ECC and SAP BODS 
+
+***********Process of Steps**************
+
+1) Install the BOBI Platform or IPS and make sure we get CMC
+2) Install the SAP BODS 4.2
+3) Create the local repository( Repository Manager)
+4) Register the Local repository( in CMC)
+5) Create the Enterprise user in CMC 
+6) Grant rights for the user on local repository that we have registered previously
+7) Associcate the local repository with Jobserver( in Server Manager)
+8) Login into BODS Designer 
+
+***********Interfaces***********
+
+Project Area
+Work Space
+Local Object Library
+Tool Pallete
+
+***************recap***********
+
+1) Project 
+2) job
+3) workflow 
+4) Dataflow 
+5) Datastores and it's types
+6) Anaylize the Mapping sheet
+7) inner join can be done 
+8) Types of joins
+	Inner join 
+	left outer join 
+	Right outer join
+	Full outer join 
+	non-equi join  or thita join 
+
+
+*********case transform *****************
+1) Define and label
+2) Define the Expression 
+3) Label is definition of Expression 
+*************Validation Transform*************
+
+1) Identify Validate field
+2) Define the Validation rule and condition 
+3) 2 ways 
+	1) Default validation functions 
+	2) Custom Validation functions 
+4) Pass table or Fail table or rule violation
+
+Validation functions are of 2 types 
+	1) Locally Created 
+	2) Information Steward
+
+Nested data Extraction:
+
+2 types 
+
+1).DTD Header file   or 2) .XSD Header file 
+
+.DTD header file and .XML datafile or 
+.XSD header file and .XML Datafile 
+
+.DTD header file -----> DTD file format in BODS 
+.XSD Header file -----> XSD File format in BODS
+
+--------------------------------
+Row generation Transformation:
+
+-Upstream/Streamline transform 
+-Starting number 
+-Count 
+-Generation of integer values 
+
+Ex: 2 excels ( plant information, Plantname,No.of items,Itemstartnumber')
+(Plant item description)
+
+3 Global variables( $plant,$ Itemstartno,$ItemCount)
+P1
+P2 
+P3,etc.,
+
+Objects:
+Dataflows 
+Script Object (BODS Scripting Language)
+
+Job:
+
+3 Dataflows
+
+Plant Dataflow,Item Dataflow,Row_gen_Num DF
+
+3 Global Variables
+
+Script object and Script language 
+
+Built-in functions: SQL,Lookup functions
+
+***************Data Accessment*********************
+
+Profiling: Pre accessment of the the data 
+Types of Profiling:
+	1)column Profiling 
+		Basic Profiling 
+		Detail Profiling 
+	2)Relationship Profiling
+
+Steps:
+
+1) create the Profiler repository ( BODS Resository Manager)
+2) Register the Profilter repository in CMC 
+3) Grant/Verify your rights on profiler repository in CMC 
+4) Add the profiler repository to job Server( BODS Server Manager)
+5) Start the Profiler server
+
+**************While Loop ***************************
+
+1) Daily few files( more 1 file) will be placed in sharedfolder 
+2)BODS has the process only one file at a time and load into the target table till all files 
+
+04023034173
+
+04023036966
+
+processed in the shared folder
+
+**************** Central and local Repo****************
+
+1) what is the central Repo and it's purpose?
+2) Relation b/w Central and Local repo?
+3) Creation of Central REpo ?
+4) Register the central repo in CMC?
+5) Verify rights on Central Repo in CMC
+6) add the central repo to local repo
+
+Central repo benefits:
+
+2 types 
+	1) Secure central repo
+	2) Non-Secure Central Repo
+
+1) Migration of code 
+2) Version management of code 
+
+Type of Migration
+
+1) Central repo
+2) .ATL file or .XML file
+
+*********************DS Management Console ******************
+
+1) webinterface  and it will run on Tomcat by defaullt 
+2) to monitor the jobs and execute the jobs,to verify health of the BODS jobs 
+3) SAP ECC and BOds ,SAP BW and BODS connectivity related integration all done in this
+4) Data quality reports 
+5) how many jobs failure in last day or success
+6) Auto-Documentation of the project( what is the job is about,workflow,dataflow,etc.,)
+7) Impact and leanage analysis 
+8) thirdparty schedules( redwood Scheduler,FRaD Tool),BODS Designer and also DS Console 
+
+*******************SAP ECC and BODS Integration **********************
+
+1) create the SAP Applications type of Datastore 
+2) Before the first step we need to import the transports into the SAP ECC 
+		Function modules in Function Group( ABAP Programs)
+3) Function modules:send the request to BODS and SAP ECC system; if SAP ECC system returns the data...then pass the data to SAP BODS
+4) once you are able to connect to SAP system
+	1) Tables 
+	2) Hierarchies 
+	3) IDOCS
+	4) BAPIS
+	5)functions 
+	6)Extractors 
+		Attri,Text,Heir,Trans
+ODP API enabled extractors
+ODP API not enabled Extractors
+
+
+Extractors---load the data into Target(SQL Server) 
+
+
+extraction from SAP BW:
+
+1) SAP BODS Transports needs to be deployed on to SAP BW 
+2) with above step all the function modules will gets loaded into Source 
+3) Objects we have an access:
+		OpenHub tables 
+		Tables 
+		IDOCs
+		Functions
+		
+
+SAP ECC and SAP HANA are connected with SAP BODS :
+
+
+------------------------------------------------------------
+
+what is SAP BW ?
+ SAP BW is an another BI Solution
+	ETL,
+	Store the data
+	multi-dimentional reporting
+
+-----------------------------------------------------------
+
+loading into SAP BW 
+
+1) Create the dataSouce in SAPBW( taken care by SAP BW) 
+2) Import the DataSource into SAPBODS( Taken care by SAP BODS)
+3) load the data into SAP Datasource(PSA)( Taken Care by SAP BODS)\\
+
+-----------------------------------------------------------
+
+Loading into SAP ECC 
+
+1) LSMW
+2) IDOCS----More no. of records has to be loaded( we are not sure whether the records loaded correctly or not, help from SAP ECC team to  confirm 
+3) BAPI( Function developed in ABAP code,it will return output as record status)
+		`1) Create BAPI function
+		2) How to find out length of the column and return that value.
+
+IDOCs:( inbound and outbound)
+--------
+1)ARTMAS05( inbound)
+2)Understand the IDOC structure(
+
+1)Control Segment 
+2) How many segments are there 
+3) Master segments and optional segments
+____________________________________________________________________________
+Variables and Parameters:
+
+1)Global Variables( Job level) 
+2)Local Variables ( workflow/Dataflow)
+3)Input/Out parameters ( in custom functions)
+4)substitution parameters(Local repository)
+
+Local Variables( workflow/Dataflow) 
+Custom function: 
+Removal of specialcharacters
+
+_________________________________________________________________________________________
+		Informtion Steward -Data Insight 
+
+1) Creation of connection 
+2) Creation of project 
+3) add Tables to Project 
+4) Create the task in information steward-Data Insight 
+5) Submit the task in information steward 
+6) please check if the IS jobserver is configured or not 
+7) Check the data insight results
+
+
+Performance optimization guide 
+cmd Deployment Steps 
+Software to write the scripting language 
+Geocode 
+Match transform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
